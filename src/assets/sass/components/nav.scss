@@ -4,7 +4,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 25px 0;
+  padding: 30px 0;
 
   &__default {
     display: none;
@@ -22,6 +22,10 @@
             font-family: inherit;
             font-weight: 700;
             color: $grey;
+
+            &:hover {
+              color: $dark-grey-blue;
+            }
           }
         }
       }
@@ -40,8 +44,9 @@
 
     &-sidebar {
       position: fixed;
+      z-index: 10;
       left: 0;
-      top: 70px;
+      top: 78px;
       height: 100%;
       width: 100vw;
       padding: 0 25px;
@@ -50,8 +55,9 @@
       pointer-events: none;
       background: linear-gradient(
         180deg,
-        rgba(254, 252, 247, 0.5) 0%,
-        #fefcf7 100%
+        $light-cream 0%,
+        $light-cream 40%,
+        rgba(254, 252, 247, 0.2) 100%
       );
 
       &-links {
@@ -70,6 +76,9 @@
             font-size: 24px;
             color: $dark-grey-blue;
             text-decoration: none;
+            &:hover {
+              color: $dark-grey-blue;
+            }
           }
         }
       }

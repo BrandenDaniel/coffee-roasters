@@ -6,8 +6,7 @@ import Logo from "../assets/images/logo.svg";
 import HamburgerIcon from "../assets/images/icons/hamburger.svg";
 import CancelIcon from "../assets/images/icons/cancel.svg";
 import "../assets/sass/components/nav.scss";
-import { barlow } from "../ultils/fonts";
-import { fraunces } from "../ultils/fonts";
+import { barlow, fraunces } from "../ultils/fonts";
 import { useState } from "react";
 
 const Nav = () => {

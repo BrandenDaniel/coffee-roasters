@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${fraunces.className} container`}>
         <Nav />
-        {/* <main>{children}</main> */}
+        <main>{children}</main>
         {/* <Footer /> */}
       </body>
     </html>
