@@ -68,13 +68,13 @@
     padding: 60px;
     gap: 40px 0;
 
-    h1 {
-      font-size: 48px;
+    * {
       max-width: 370px;
+      margin: 0;
     }
 
-    p {
-      max-width: 370px;
+    h1 {
+      font-size: 48px;
     }
 
     a {
