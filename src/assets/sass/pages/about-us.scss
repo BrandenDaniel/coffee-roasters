@@ -11,6 +11,7 @@
   .about-us {
     &__banner {
       background-image: url("../../images/background/image-hero-whitecup-tablet.jpg") !important;
+      height: 400px !important;
     }
   }
 }
@@ -19,6 +20,7 @@
   .about-us {
     &__banner {
       background-image: url("../../images/background/image-hero-whitecup-desktop.jpg") !important;
+      height: 450px !important;
     }
   }
 }
