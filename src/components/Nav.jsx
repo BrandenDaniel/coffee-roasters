@@ -18,12 +18,14 @@ const Nav = () => {
 
   return (
     <nav className="nav">
-      <Image
-        src={Logo}
-        style={{ maxWidth: "163px", height: "100%", width: "100%" }}
-        className="nav__logo-brand"
-        alt="logo"
-      />
+      <Link href="/">
+        <Image
+          src={Logo}
+          style={{ maxWidth: "163px", height: "100%", width: "100%" }}
+          className="nav__logo-brand"
+          alt="logo"
+        />
+      </Link>
 
       <div className="nav__default">
         <div className={`nav__default-links ${barlow.className}`}>
@@ -32,10 +34,10 @@ const Nav = () => {
               <Link href="/">HOME</Link>
             </li>
             <li>
-              <Link href="about-us">ABOUT US</Link>
+              <Link href="/about-us">ABOUT US</Link>
             </li>
             <li>
-              <Link href="create-your-plan">CREATE YOUR PLAN</Link>
+              <Link href="/create-your-plan">CREATE YOUR PLAN</Link>
             </li>
           </ul>
         </div>
@@ -54,13 +56,19 @@ const Nav = () => {
           <div className={`nav__mobile-sidebar-links ${fraunces.className}`}>
             <ul>
               <li>
-                <Link href="/">HOME</Link>
+                <Link href="/" onClick={navToggle}>
+                  HOME
+                </Link>
               </li>
               <li>
-                <Link href="about-us">ABOUT US</Link>
+                <Link href="about-us" onClick={navToggle}>
+                  ABOUT US
+                </Link>
               </li>
               <li>
-                <Link href="create-your-plan">CREATE YOUR PLAN</Link>
+                <Link href="create-your-plan" onClick={navToggle}>
+                  CREATE YOUR PLAN
+                </Link>
               </li>
             </ul>
           </div>

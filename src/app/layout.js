@@ -1,4 +1,8 @@
 import "../assets/sass/global.scss";
+import "../assets/sass/pages/home.scss";
+import "../assets/sass/pages/about-us.scss";
+import "../assets/sass/components/ui.scss";
+import "../assets/sass/components/footer.scss";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import { fraunces } from "../ultils/fonts";

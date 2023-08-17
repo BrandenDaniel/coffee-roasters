@@ -1,6 +1,3 @@
-import "../assets/sass/pages/home.scss";
-import "../assets/sass/components/buttons.scss";
-import "../assets/sass/components/footer.scss";
 import Link from "next/link";
 import { barlow } from "../ultils/fonts";
 import CollectionItems from "@/components/CollectionItems";
@@ -10,7 +7,7 @@ import HowItWorksItems from "@/components/HowItWorksItems";
 const page = () => {
   return (
     <div className="home">
-      <header className="home__banner">
+      <header className="home__banner banner">
         <h1>Great coffee made simple.</h1>
         <p className={barlow.className}>
           Start your mornings with the world’s best coffees. Try our expertly

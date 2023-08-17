@@ -1,0 +1,24 @@
+@import "../variables.scss";
+
+.about-us {
+  &__banner {
+    background-image: url("../../images/background/image-hero-whitecup-mobile.jpg") !important;
+    height: 50vh;
+  }
+}
+
+@media (min-width: $md) {
+  .about-us {
+    &__banner {
+      background-image: url("../../images/background/image-hero-whitecup-tablet.jpg") !important;
+    }
+  }
+}
+
+@media (min-width: $xl) {
+  .about-us {
+    &__banner {
+      background-image: url("../../images/background/image-hero-whitecup-desktop.jpg") !important;
+    }
+  }
+}
