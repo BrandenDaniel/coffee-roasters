@@ -3,10 +3,9 @@ import GrandEspresso from "../assets/images/collection/image-gran-espresso.png";
 import Planalto from "../assets/images/collection/image-planalto.png";
 import Piccollo from "../assets/images/collection/image-piccollo.png";
 import Danche from "../assets/images/collection/image-danche.png";
-
 import { barlow } from "../ultils/fonts";
 
-const CollectionItem = () => {
+const CollectionItems = () => {
   const coffeCollection = [
     {
       name: "Gran Espresso",
@@ -45,4 +44,4 @@ const CollectionItem = () => {
   );
 };
 
-export default CollectionItem;
+export default CollectionItems;

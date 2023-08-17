@@ -30,21 +30,6 @@
       line-height: 25px;
       opacity: 0.8;
     }
-
-    a {
-      background: $dark-cyan;
-      color: #fff;
-      font-size: 18px;
-      line-height: 1;
-      border-radius: 6px;
-      display: inline-block;
-      padding: 17px 31px;
-      align-self: center;
-
-      &:hover {
-        background: $btn-hover;
-      }
-    }
   }
 
   &__our-collection {
@@ -91,7 +76,7 @@
         width: 200px;
         max-width: 100%;
         height: auto;
-        margin-right: -14px;
+        margin-right: -17px;
       }
 
       h3 {
@@ -129,14 +114,14 @@
       p {
         opacity: 0.8;
         font-size: 15px;
-        line-height: 25px;
+        line-height: 1.6;
       }
     }
 
     &-items {
       display: flex;
       flex-direction: column;
-      gap: 25px;
+      gap: 25px 30px;
       padding: 0 25px;
       position: relative;
 
@@ -175,6 +160,55 @@
           font-size: 16px;
           line-height: 1.6;
           color: $light-cream;
+        }
+      }
+    }
+  }
+
+  &__how-it-works {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+
+    h2 {
+      color: $grey;
+      font-size: 24px;
+      line-height: 1.3;
+    }
+
+    &-items {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 56px 20px;
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin: 0 auto;
+        position: relative;
+
+        * {
+          max-width: 285px;
+        }
+
+        h3 {
+          color: $pale-orange;
+          font-size: 72px;
+          line-height: 1;
+        }
+
+        h4 {
+          color: $dark-grey-blue;
+          font-size: 28px;
+          line-height: 1.1;
+        }
+
+        p {
+          font-size: 15px;
+          line-height: 1.6;
+          color: $dark-grey-blue;
         }
       }
     }
@@ -235,7 +269,7 @@
 
     &__why-choose-us {
       &-header {
-        padding: 70px 50px;
+        padding: 60px 50px;
         h2 {
           font-size: 32px;
           line-height: 1.5;
@@ -248,8 +282,90 @@
       }
 
       &-items {
+        padding: 0 50px;
         > div {
           flex-direction: row;
+          padding: 40px 60px;
+          text-align: left;
+          gap: 0 55px;
+
+          img {
+            margin: 0;
+            width: 55px;
+            height: auto;
+          }
+
+          h3 {
+            margin-bottom: 16px;
+          }
+
+          p {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+
+    &__how-it-works {
+      text-align: left;
+      gap: 60px;
+
+      &-items {
+        flex-direction: row;
+        > div {
+          flex-basis: 0;
+          flex-grow: 1;
+          gap: 38px;
+
+          &::before {
+            content: "";
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+            border: 2px solid $dark-cyan;
+            background: $light-cream;
+            z-index: 1;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            left: 33px;
+            height: 2px;
+            width: 100%;
+            background: $pale-orange;
+          }
+
+          &:last-child::after {
+            display: none;
+          }
+
+          * {
+            max-width: 285px;
+          }
+
+          h4 {
+            min-height: 61.59px;
+            max-width: 200px;
+          }
+        }
+      }
+
+      a {
+        align-self: flex-start;
+      }
+    }
+  }
+}
+
+@media (min-width: $lg) {
+  .home {
+    &__why-choose-us {
+      &-items {
+        > div {
+          max-width: 600px;
+          margin: 0 auto;
         }
       }
     }
@@ -258,6 +374,8 @@
 
 @media (min-width: $xl) {
   .home {
+    gap: 175px 0;
+
     &__banner {
       background-image: url("../../images/background/image-hero-coffeepress-desktop.jpg");
       padding: 85px;
@@ -294,13 +412,69 @@
         }
 
         img {
-          margin-right: -12px;
+          margin-right: -20px;
         }
 
         p {
           font-size: 16px;
           line-height: 1.6;
           max-width: 255px;
+        }
+      }
+    }
+
+    &__why-choose-us {
+      &-header {
+        padding: 80px;
+        h2 {
+          font-size: 40px;
+          line-height: 1.2;
+          margin-bottom: 32px;
+        }
+
+        p {
+          font-size: 16px;
+          max-width: 529px;
+        }
+      }
+
+      &-items {
+        flex-direction: row;
+        padding: 0 80px;
+
+        > div {
+          flex-basis: 0;
+          flex-grow: 1;
+          flex-direction: column;
+          text-align: center;
+          padding: 50px;
+          justify-content: space-between;
+          max-width: 100%;
+
+          img {
+            width: 70px;
+            height: 70px;
+            margin: 10px 0 50px 0;
+            object-fit: contain;
+          }
+
+          h3 {
+            margin-bottom: 24px;
+          }
+        }
+      }
+    }
+
+    &__how-it-works {
+      gap: 80px;
+      &-items {
+        > div {
+          h4 {
+            font-size: 32px;
+          }
+          p {
+            font-size: 16px;
+          }
         }
       }
     }

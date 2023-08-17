@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
       <body className={`${fraunces.className} container`}>
         <Nav />
         <main>{children}</main>
-        {/* <Footer /> */}
+        <Footer />
       </body>
     </html>
   );

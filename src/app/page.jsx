@@ -1,8 +1,11 @@
 import "../assets/sass/pages/home.scss";
+import "../assets/sass/components/buttons.scss";
+import "../assets/sass/components/footer.scss";
 import Link from "next/link";
 import { barlow } from "../ultils/fonts";
-import CollectionItem from "@/components/CollectionItem";
+import CollectionItems from "@/components/CollectionItems";
 import WhyChooseUsItems from "@/components/WhyChooseUsItems";
+import HowItWorksItems from "@/components/HowItWorksItems";
 
 const page = () => {
   return (
@@ -14,13 +17,15 @@ const page = () => {
           curated artisan coffees from our best roasters delivered directly to
           your door, at your schedule.
         </p>
-        <Link href="/">Create your plan</Link>
+        <Link href="/" className="primary-btn">
+          Create your plan
+        </Link>
       </header>
 
       <div className="home__our-collection">
         <h2>our collection</h2>
         <div className="home__our-collection-items">
-          <CollectionItem />
+          <CollectionItems />
         </div>
       </div>
 
@@ -38,6 +43,18 @@ const page = () => {
         <div className="home__why-choose-us-items">
           <WhyChooseUsItems />
         </div>
+      </div>
+
+      <div className="home__how-it-works">
+        <h2>How it works</h2>
+
+        <div className="home__how-it-works-items">
+          <HowItWorksItems />
+        </div>
+
+        <Link href="/" className="primary-btn">
+          Create your plan
+        </Link>
       </div>
     </div>
   );
