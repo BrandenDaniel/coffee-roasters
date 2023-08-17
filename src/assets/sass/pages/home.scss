@@ -288,6 +288,8 @@
           padding: 40px 60px;
           text-align: left;
           gap: 0 55px;
+          max-width: 588px;
+          margin: 0 auto;
 
           img {
             margin: 0;
@@ -354,19 +356,6 @@
 
       a {
         align-self: flex-start;
-      }
-    }
-  }
-}
-
-@media (min-width: $lg) {
-  .home {
-    &__why-choose-us {
-      &-items {
-        > div {
-          max-width: 600px;
-          margin: 0 auto;
-        }
       }
     }
   }
