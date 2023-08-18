@@ -14,7 +14,7 @@
     &-image {
       height: 50vh;
       max-height: 400px;
-      border-radius: 8px;
+      border-radius: 10px;
       background-image: url("../../images/background/image-commitment-mobile.jpg") !important;
       background-size: cover;
       background-position: top center;
@@ -43,7 +43,7 @@
   &__quality {
     background: $dark-navy;
     padding: 0 25px 65px 25px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-top: 90px;
 
     &::before {
@@ -57,7 +57,7 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      border-radius: 8px;
+      border-radius: 10px;
     }
 
     > div {
@@ -123,7 +123,7 @@
   .about-us {
     &__banner {
       background-image: url("../../images/background/image-hero-whitecup-tablet.jpg") !important;
-      height: 400px !important;
+      max-height: 400px;
     }
 
     &__our-commitment {

@@ -2,11 +2,11 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import Logo from "../assets/images/logo.svg";
-import HamburgerIcon from "../assets/images/icons/hamburger.svg";
-import CancelIcon from "../assets/images/icons/cancel.svg";
-import "../assets/sass/components/nav.scss";
-import { barlow, fraunces } from "../ultils/fonts";
+import Logo from "../../assets/images/logo.svg";
+import HamburgerIcon from "../../assets/images/icons/hamburger.svg";
+import CancelIcon from "../../assets/images/icons/cancel.svg";
+import "../../assets/sass/components/nav.scss";
+import { barlow, fraunces } from "../../ultils/fonts";
 import { useState } from "react";
 
 const Nav = () => {

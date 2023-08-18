@@ -17,7 +17,7 @@
 
 .banner {
   padding: 25px;
-  border-radius: 10px;
+  border-radius: 15px;
   background-repeat: no-repeat;
   background-position: top right;
   background-size: cover;
@@ -36,7 +36,7 @@
     position: absolute;
     inset: 0;
     background: rgba(0, 0, 0, 0.35);
-    border-radius: 10px;
+    border-radius: 15px;
   }
 
   * {
@@ -185,8 +185,8 @@
   .banner {
     padding: 85px;
     border-radius: 15px;
-    height: 575px !important;
-    max-height: initial;
+    height: 575px;
+    max-height: initial !important;
 
     h1 {
       font-size: 72px;

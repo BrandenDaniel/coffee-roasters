@@ -2,6 +2,7 @@ import "../../assets/sass/pages/plan.scss";
 import "../../assets/sass/components/ui.scss";
 import { barlow } from "../../ultils/fonts";
 import HowItWorksItems from "@/components/HowItWorksItems";
+import Steps from "@/components/Steps";
 
 const page = () => {
   return (
@@ -19,6 +20,10 @@ const page = () => {
         <div className="how-it-works-items">
           <HowItWorksItems />
         </div>
+      </div>
+
+      <div className="plan__steps">
+        <Steps />
       </div>
     </div>
   );

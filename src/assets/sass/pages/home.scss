@@ -74,7 +74,7 @@
 
     &-header {
       padding: 65px 25px;
-      border-radius: 10px 10px 0 0;
+      border-radius: 15px 15px 0 0;
       background-image: url("../../images/background/bg-steps-mobile.jpg");
       background-position: bottom right;
       background-size: cover;
@@ -111,12 +111,12 @@
         width: 100%;
         background-size: cover;
         z-index: -1;
-        border-radius: 8px 8px 0 0;
+        border-radius: 10px 10px 0 0;
       }
 
       > div {
         background: $dark-cyan;
-        border-radius: 8px;
+        border-radius: 10px;
         padding: 50px 35px;
         display: flex;
         flex-direction: column;

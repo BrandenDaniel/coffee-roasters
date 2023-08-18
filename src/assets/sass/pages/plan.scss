@@ -12,7 +12,7 @@
     background-image: url("../../images/background/bg-steps-mobile.jpg");
     background-size: cover;
     background-position: center;
-    border-radius: 10px;
+    border-radius: 15px !important;
 
     &-items {
       > div {
@@ -27,12 +27,81 @@
       }
     }
   }
+
+  &__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 100px 0;
+    &-items {
+      &--active {
+        > div {
+          max-height: 100vh !important;
+          opacity: 1 !important;
+          pointer-events: inherit !important;
+          margin-top: 32px !important;
+        }
+      }
+
+      h3 {
+        font-size: 24px;
+        line-height: 1.16;
+        color: $grey;
+        margin-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0 30px;
+      }
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: 16px 0;
+        max-height: 0px;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.2s ease-in-out;
+        margin-top: 0;
+
+        a {
+          text-align: left;
+          padding: 25px;
+          border: none;
+          background: #f4f1eb;
+          border-radius: 10px;
+          transition: 0.2s ease-in-out;
+
+          &:hover {
+            background: $dark-cyan;
+            cursor: pointer;
+            * {
+              color: $light-cream;
+            }
+          }
+
+          h4 {
+            font-size: 24px;
+            line-height: 1.33;
+            margin-bottom: 8px;
+            color: $dark-grey-blue;
+          }
+
+          p {
+            font-size: 16px;
+            line-height: 1.62;
+            color: $dark-grey-blue;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media (min-width: $md) {
   .plan {
     &__banner {
       background-image: url("../../images/background/image-hero-blackcup-tablet.jpg");
+      max-height: 400px;
     }
 
     .how-it-works {
@@ -47,6 +116,7 @@
   .plan {
     &__banner {
       background-image: url("../../images/background/image-hero-blackcup-desktop.jpg");
+      height: 450px;
     }
 
     .how-it-works {
