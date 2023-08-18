@@ -14,7 +14,7 @@ const page = () => {
           curated artisan coffees from our best roasters delivered directly to
           your door, at your schedule.
         </p>
-        <Link href="/" className="primary-btn">
+        <Link href="/plan" className="primary-btn">
           Create your plan
         </Link>
       </header>
@@ -42,14 +42,14 @@ const page = () => {
         </div>
       </div>
 
-      <div className="home__how-it-works">
+      <div className="how-it-works">
         <h2>How it works</h2>
 
-        <div className="home__how-it-works-items">
+        <div className="how-it-works-items">
           <HowItWorksItems />
         </div>
 
-        <Link href="/" className="primary-btn">
+        <Link href="/plan" className="primary-btn">
           Create your plan
         </Link>
       </div>

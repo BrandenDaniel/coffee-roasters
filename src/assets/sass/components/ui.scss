@@ -18,7 +18,6 @@
 .banner {
   padding: 25px;
   border-radius: 10px;
-  background-image: url("../../images/background/image-hero-coffeepress-mobile.jpg");
   background-repeat: no-repeat;
   background-position: top right;
   background-size: cover;
@@ -59,9 +58,57 @@
   }
 }
 
+.how-it-works {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+
+  h2 {
+    color: $grey;
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  &-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 56px 20px;
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 0 auto;
+      position: relative;
+
+      * {
+        max-width: 285px;
+      }
+
+      h3 {
+        color: $pale-orange;
+        font-size: 72px;
+        line-height: 1;
+      }
+
+      h4 {
+        color: $dark-grey-blue;
+        font-size: 28px;
+        line-height: 1.1;
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 1.6;
+        color: $dark-grey-blue;
+      }
+    }
+  }
+}
+
 @media (min-width: $md) {
   .banner {
-    background-image: url("../../images/background/image-hero-coffeepress-tablet.jpg");
     background-position: center;
     text-align: left;
     align-items: flex-start;
@@ -81,11 +128,61 @@
       align-self: flex-start;
     }
   }
+
+  .how-it-works {
+    text-align: left;
+    gap: 60px;
+
+    &-items {
+      flex-direction: row;
+      > div {
+        flex-basis: 0;
+        flex-grow: 1;
+        gap: 38px;
+
+        &::before {
+          content: "";
+          height: 30px;
+          width: 30px;
+          border-radius: 50%;
+          border: 2px solid $dark-cyan;
+          background: $light-cream;
+          z-index: 1;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 15px;
+          left: 34px;
+          height: 2px;
+          width: calc(100% - 34px + 20px);
+          background: $pale-orange;
+        }
+
+        &:last-child::after {
+          display: none;
+        }
+
+        * {
+          max-width: 285px;
+        }
+
+        h4 {
+          min-height: 61.59px;
+          max-width: 200px;
+        }
+      }
+    }
+
+    a {
+      align-self: flex-start;
+    }
+  }
 }
 
 @media (min-width: $xl) {
   .banner {
-    background-image: url("../../images/background/image-hero-coffeepress-desktop.jpg");
     padding: 85px;
     border-radius: 15px;
     height: 575px !important;
@@ -99,6 +196,20 @@
     p {
       font-size: 16px;
       max-width: 430px;
+    }
+  }
+
+  .how-it-works {
+    gap: 80px;
+    &-items {
+      > div {
+        h4 {
+          font-size: 32px;
+        }
+        p {
+          font-size: 16px;
+        }
+      }
     }
   }
 }

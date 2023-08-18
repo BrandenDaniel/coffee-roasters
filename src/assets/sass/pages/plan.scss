@@ -1,0 +1,58 @@
+@import "../variables.scss";
+
+.plan {
+  &__banner {
+    background-image: url("../../images/background/image-hero-blackcup-mobile.jpg");
+    max-height: 400px;
+  }
+
+  .how-it-works {
+    padding: 80px 25px;
+    margin: 0 -25px;
+    background-image: url("../../images/background/bg-steps-mobile.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+
+    &-items {
+      > div {
+        &::before {
+          background: transparent;
+        }
+
+        h4,
+        p {
+          color: $light-cream;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $md) {
+  .plan {
+    &__banner {
+      background-image: url("../../images/background/image-hero-blackcup-tablet.jpg");
+    }
+
+    .how-it-works {
+      background-image: url("../../images/background/bg-steps-tablet.png");
+      padding: 100px 40px;
+      margin: 0 -40px;
+    }
+  }
+}
+
+@media (min-width: $xl) {
+  .plan {
+    &__banner {
+      background-image: url("../../images/background/image-hero-blackcup-desktop.jpg");
+    }
+
+    .how-it-works {
+      background-image: url("../../images/background/bg-steps-desktop.png");
+      padding: 100px 85px;
+      margin: 0;
+    }
+  }
+}

@@ -37,7 +37,7 @@ const Nav = () => {
               <Link href="/about-us">ABOUT US</Link>
             </li>
             <li>
-              <Link href="/create-your-plan">CREATE YOUR PLAN</Link>
+              <Link href="/plan">CREATE YOUR PLAN</Link>
             </li>
           </ul>
         </div>
@@ -64,12 +64,12 @@ const Nav = () => {
                 </Link>
               </li>
               <li>
-                <Link href="about-us" onClick={navToggle}>
+                <Link href="/about-us" onClick={navToggle}>
                   ABOUT US
                 </Link>
               </li>
               <li>
-                <Link href="create-your-plan" onClick={navToggle}>
+                <Link href="/plan" onClick={navToggle}>
                   CREATE YOUR PLAN
                 </Link>
               </li>
