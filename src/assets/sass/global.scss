@@ -14,7 +14,7 @@ a {
 }
 
 body.container {
-  max-width: 1280px;
+  max-width: 1380px;
   margin: 0 auto;
   padding: 0 25px 25px 25px;
   background: $light-cream;
@@ -22,14 +22,29 @@ body.container {
   flex-direction: column;
 }
 
+//Flex gap spacing
+main > div {
+  display: flex;
+  flex-direction: column;
+  gap: 120px 0;
+}
+
 @media (min-width: $md) {
   body.container {
     padding: 0 40px 40px 40px;
+  }
+
+  main > div {
+    gap: 130px 0;
   }
 }
 
 @media (min-width: $xl) {
   body.container {
     padding: 0 50px 50px 50px;
+  }
+
+  main > div {
+    gap: 175px 0;
   }
 }

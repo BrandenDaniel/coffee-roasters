@@ -1,9 +1,6 @@
 @import "../variables.scss";
 
 .home {
-  display: flex;
-  flex-direction: column;
-  gap: 120px 0;
   &__banner {
     background-image: url("../../images/background/image-hero-coffeepress-mobile.jpg");
   }
@@ -124,7 +121,7 @@
         margin: 0 auto;
 
         img {
-          margin: 30px 0 50px 0;
+          margin: 0px 0 25px 0;
         }
 
         h3 {
@@ -195,7 +192,6 @@
 
 @media (min-width: $md) {
   .home {
-    gap: 130px 0;
     &__banner {
       background-image: url("../../images/background/image-hero-coffeepress-tablet.jpg");
     }
@@ -323,8 +319,6 @@
 
 @media (min-width: $xl) {
   .home {
-    gap: 175px 0;
-
     &__banner {
       background-image: url("../../images/background/image-hero-coffeepress-desktop.jpg");
     }
@@ -388,7 +382,7 @@
           img {
             width: 70px;
             height: 70px;
-            margin: 10px 0 50px 0;
+            margin: 0 0 50px 0;
             object-fit: contain;
           }
 
