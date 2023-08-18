@@ -1,7 +1,5 @@
-import Link from "next/link";
-
 import { barlow } from "../../ultils/fonts";
-import Image from "next/image";
+import HeadQuarters from "@/components/HeadQuarters";
 
 const page = () => {
   return (
@@ -48,6 +46,11 @@ const page = () => {
             brewing is easy and enjoyable.
           </p>
         </div>
+      </div>
+
+      <div className="about-us__headquarters">
+        <h3>Our headquarters</h3>
+        <HeadQuarters />
       </div>
     </div>
   );
