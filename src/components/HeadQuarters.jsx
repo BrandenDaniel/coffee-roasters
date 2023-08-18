@@ -33,7 +33,7 @@ const HeadQuarters = () => {
     <>
       {content.map((item) => (
         <div>
-          <Image src={item.map} />
+          <Image src={item.map} alt="" />
           <h4>{item.country}</h4>
           <div>
             {item.address.map((item) => (

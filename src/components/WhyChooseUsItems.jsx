@@ -5,7 +5,7 @@ import Truck from "../assets/images/icons/icon-truck.svg";
 import { barlow } from "../ultils/fonts";
 
 const WhyChooseUsItems = ({ fontFamily }) => {
-  const reasons = [
+  const content = [
     {
       imagePath: Bean,
       benefit: "Best quality",
@@ -25,9 +25,9 @@ const WhyChooseUsItems = ({ fontFamily }) => {
 
   return (
     <>
-      {reasons.map((item) => (
+      {content.map((item) => (
         <div>
-          <Image src={item.imagePath} />
+          <Image src={item.imagePath} alt={item.benefit} />
 
           <div>
             <h3>{item.benefit}</h3>

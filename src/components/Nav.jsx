@@ -45,7 +45,10 @@ const Nav = () => {
 
       <div className="nav__mobile">
         <button className="nav__mobile-toggle" onClick={navToggle}>
-          <Image src={isMobileNavActive ? CancelIcon : HamburgerIcon} />
+          <Image
+            src={isMobileNavActive ? CancelIcon : HamburgerIcon}
+            alt="Mobile nav toggle"
+          />
         </button>
 
         <div
