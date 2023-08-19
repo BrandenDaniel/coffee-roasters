@@ -7,6 +7,7 @@ const Steps = () => {
 
   const drinkingMethod = {
     id: "method",
+    nextId: "type",
     question: "How do you drink your coffee?",
     options: [
       {
@@ -26,6 +27,7 @@ const Steps = () => {
 
   const type = {
     id: "type",
+    nextId: "quantity",
     question: "What type of coffee?",
     options: [
       {
@@ -45,6 +47,7 @@ const Steps = () => {
 
   const quantity = {
     id: "quantity",
+    nextId: "grind",
     question: "How much would you like?",
     options: [
       {
@@ -64,6 +67,7 @@ const Steps = () => {
 
   const grind = {
     id: "grind",
+    nextId: "delivery",
     question: "Want us to grind them?",
     options: [
       {

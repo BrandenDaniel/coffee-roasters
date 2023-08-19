@@ -5,6 +5,11 @@ import Image from "next/image";
 const StepItems = ({ options, setStep, active, step }) => {
   const handleClick = () => {
     setStep(step + 1);
+
+    const scrollToView = () =>
+      document.getElementById(options.nextId).scrollIntoView();
+    setTimeout(scrollToView, 100);
+    clearTimeout(scrollToView);
   };
 
   return (
@@ -19,10 +24,10 @@ const StepItems = ({ options, setStep, active, step }) => {
       </h3>
       <div>
         {options.options.map((item) => (
-          <a href={`#`} key={item.title} onClick={handleClick}>
+          <button key={item.title} onClick={handleClick}>
             <h4 className={fraunces.className}>{item.title}</h4>
             <p className={barlow.className}> {item.desc}</p>
-          </a>
+          </button>
         ))}
       </div>
     </div>
