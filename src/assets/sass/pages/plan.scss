@@ -72,11 +72,8 @@
           transition: 0.2s ease-in-out;
 
           &:hover {
-            background: $dark-cyan;
+            background: $pale-orange;
             cursor: pointer;
-            * {
-              color: $light-cream;
-            }
           }
 
           h4 {
