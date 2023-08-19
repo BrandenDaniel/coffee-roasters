@@ -2,21 +2,22 @@ import { fraunces, barlow } from "../ultils/fonts";
 import chevron from "../assets/images/icons/chevron.svg";
 import Image from "next/image";
 
-const StepItems = ({ options, setStep, active, step }) => {
-  const handleClick = () => {
-    setStep(step + 1);
+const StepItems = ({ options, setStep, open, step, selected, setSelected }) => {
+  const handleSetSelect = (title) => {
+    setSelected(title);
+  };
 
-    const scrollToView = () =>
-      document.getElementById(options.nextId).scrollIntoView();
-    setTimeout(scrollToView, 100);
-    clearTimeout(scrollToView);
+  const addStep = () => {
+    setStep(step + 1);
+  };
+
+  const scrollToView = () => {
+    document.getElementById(options.nextId).scrollIntoView();
   };
 
   return (
     <div
-      className={`plan__steps-items ${
-        active ? "plan__steps-items--active" : ""
-      }`}
+      className={`plan__steps-items ${open ? "plan__steps-items--open" : ""}`}
       id={`${options.id}`}
     >
       <h3>
@@ -24,7 +25,16 @@ const StepItems = ({ options, setStep, active, step }) => {
       </h3>
       <div>
         {options.options.map((item) => (
-          <button key={item.title} onClick={handleClick}>
+          <button
+            key={item.title}
+            onClick={() => {
+              addStep();
+              setTimeout(scrollToView, 100);
+              clearTimeout(scrollToView);
+              handleSetSelect(item.title);
+            }}
+            className={selected == item.title ? "plan__steps-items-active" : ""}
+          >
             <h4 className={fraunces.className}>{item.title}</h4>
             <p className={barlow.className}> {item.desc}</p>
           </button>

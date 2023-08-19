@@ -5,8 +5,18 @@ import StepItems from "./StepItems";
 const Steps = () => {
   const [step, setStep] = useState(1);
 
-  const drinkingMethod = {
-    id: "method",
+  const [stepOne, setStepOne] = useState("");
+
+  const [stepTwo, setStepTwo] = useState("");
+
+  const [stepThree, setStepThree] = useState("");
+
+  const [stepFour, setStepFour] = useState("");
+
+  const [stepFive, setStepFive] = useState("");
+
+  const preference = {
+    id: "preference",
     nextId: "type",
     question: "How do you drink your coffee?",
     options: [
@@ -106,36 +116,73 @@ const Steps = () => {
 
   return (
     <>
-      <StepItems
-        options={drinkingMethod}
-        step={step}
-        active={true}
-        setStep={setStep}
-      />
-      <StepItems
-        options={type}
-        step={step}
-        active={step >= 2 ? true : false}
-        setStep={setStep}
-      />
-      <StepItems
-        options={quantity}
-        step={step}
-        active={step >= 3 ? true : false}
-        setStep={setStep}
-      />
-      <StepItems
-        options={grind}
-        step={step}
-        active={step >= 4 ? true : false}
-        setStep={setStep}
-      />
-      <StepItems
-        options={delivery}
-        step={step}
-        active={step >= 5 ? true : false}
-        setStep={setStep}
-      />
+      <div className="plan__steps-sidebar">
+        <div>
+          <div className={step == 1 ? "plan__steps-sidebar-active" : ""}>
+            <span>01</span>
+            <p>Preferences</p>
+          </div>
+          <div className={step == 2 ? "plan__steps-sidebar-active" : ""}>
+            <span>02</span>
+            <p>Bean Type</p>
+          </div>
+          <div className={step == 3 ? "plan__steps-sidebar-active" : ""}>
+            <span>03</span>
+            <p>Quantity</p>
+          </div>
+          <div className={step == 4 ? "plan__steps-sidebar-active" : ""}>
+            <span>04</span>
+            <p>Grind Option</p>
+          </div>
+          <div className={step == 5 ? "plan__steps-sidebar-active" : ""}>
+            <span>05</span>
+            <p>Deliveries</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="plan__steps-container">
+        <StepItems
+          options={preference}
+          step={step}
+          open={true}
+          setStep={setStep}
+          selected={stepOne}
+          setSelected={setStepOne}
+        />
+        <StepItems
+          options={type}
+          step={step}
+          open={step >= 2 ? true : false}
+          setStep={setStep}
+          selected={stepTwo}
+          setSelected={setStepTwo}
+        />
+        <StepItems
+          options={quantity}
+          step={step}
+          open={step >= 3 ? true : false}
+          setStep={setStep}
+          selected={stepThree}
+          setSelected={setStepThree}
+        />
+        <StepItems
+          options={grind}
+          step={step}
+          open={step >= 4 ? true : false}
+          setStep={setStep}
+          selected={stepFour}
+          setSelected={setStepFour}
+        />
+        <StepItems
+          options={delivery}
+          step={step}
+          open={step >= 5 ? true : false}
+          setStep={setStep}
+          selected={stepFive}
+          setSelected={setStepFive}
+        />
+      </div>
     </>
   );
 };
