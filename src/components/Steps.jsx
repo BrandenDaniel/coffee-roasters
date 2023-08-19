@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import StepItems from "./StepItems";
+import { barlow, fraunces } from "@/ultils/fonts";
 
 const Steps = () => {
   const [step, setStep] = useState(1);
@@ -134,7 +135,7 @@ const Steps = () => {
             <span>04</span>
             <p>Grind Option</p>
           </div>
-          <div className={step == 5 ? "plan__steps-sidebar-active" : ""}>
+          <div className={step >= 5 ? "plan__steps-sidebar-active" : ""}>
             <span>05</span>
             <p>Deliveries</p>
           </div>
@@ -182,6 +183,21 @@ const Steps = () => {
           selected={stepFive}
           setSelected={setStepFive}
         />
+
+        <div className="plan__steps-summary">
+          <h3 className={barlow.className}>ORDER SUMMARY</h3>
+          <p>
+            “I drink my coffee as Filter, with a Decaf type of bean. 250g ground
+            ala Cafetiére, sent to me Every Week.”
+          </p>
+        </div>
+
+        <button
+          disabled={step >= 5 ? false : true}
+          className={`primary-btn ${fraunces.className}`}
+        >
+          Create my plan!
+        </button>
       </div>
     </>
   );
