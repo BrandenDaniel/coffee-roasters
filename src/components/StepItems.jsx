@@ -2,13 +2,22 @@ import { fraunces, barlow } from "../ultils/fonts";
 import chevron from "../assets/images/icons/chevron.svg";
 import Image from "next/image";
 
-const StepItems = ({ options, setStep, open, step, selected, setSelected }) => {
+const StepItems = ({
+  options,
+  open,
+  selected,
+  setSelected,
+  stepStatus,
+  setStepStatus,
+  disabled,
+  setCurrentActive,
+}) => {
   const handleSetSelect = (title) => {
     setSelected(title);
   };
 
-  const addStep = () => {
-    setStep(step + 1);
+  const handleSetStepStatus = (options) => {
+    setStepStatus({ ...stepStatus, [options.id]: true });
   };
 
   const scrollToView = () => {
@@ -17,7 +26,9 @@ const StepItems = ({ options, setStep, open, step, selected, setSelected }) => {
 
   return (
     <div
-      className={`plan__steps-items ${open ? "plan__steps-items--open" : ""}`}
+      className={`plan__steps-items ${
+        open ? "plan__steps-items--open" : ""
+      } ${disabled}`}
       id={`${options.id}`}
     >
       <h3>
@@ -28,10 +39,11 @@ const StepItems = ({ options, setStep, open, step, selected, setSelected }) => {
           <button
             key={item.title}
             onClick={() => {
-              addStep();
               setTimeout(scrollToView, 100);
               clearTimeout(scrollToView);
+              handleSetStepStatus(options);
               handleSetSelect(item.title);
+              setCurrentActive(options.nextId);
             }}
             className={selected == item.title ? "plan__steps-items-active" : ""}
           >

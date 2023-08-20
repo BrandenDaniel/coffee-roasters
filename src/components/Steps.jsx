@@ -2,9 +2,18 @@
 import { useState } from "react";
 import StepItems from "./StepItems";
 import { barlow, fraunces } from "@/ultils/fonts";
+import Link from "next/link";
 
 const Steps = () => {
-  const [step, setStep] = useState(1);
+  const [stepStatus, setStepStatus] = useState({
+    preference: false,
+    type: false,
+    quantity: false,
+    grind: false,
+    delivery: false,
+  });
+
+  const [currentActive, setCurrentActive] = useState("preference");
 
   const [stepOne, setStepOne] = useState("");
 
@@ -101,99 +110,172 @@ const Steps = () => {
     question: "How often should we deliver?",
     options: [
       {
-        title: "Every week",
+        title: "Every Week",
         desc: "$7.20 per shipment. Includes free first-class shipping.",
       },
       {
-        title: "Every 2 weeks",
+        title: "Every 2 Weeks",
         desc: "$9.60 per shipment. Includes free priority shipping.",
       },
       {
-        title: "Every month",
+        title: "Every Month",
         desc: "$12.00 per shipment. Includes free priority shipping.",
       },
     ],
+  };
+
+  const showDelivery = (stepStatus) => {
+    if (stepStatus.grind) {
+      return true;
+    } else if (stepOne == "Capsule" && stepStatus.quantity) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const sidebarScroll = (id) => {
+    const element = document.getElementById(id);
+    element.scrollIntoView();
   };
 
   return (
     <>
       <div className="plan__steps-sidebar">
         <div>
-          <div className={step == 1 ? "plan__steps-sidebar-active" : ""}>
+          <button
+            className={`${
+              currentActive == "preference" ? "plan__steps-sidebar-active" : ""
+            } ${fraunces.className}`}
+            onClick={() => {
+              sidebarScroll("preference");
+            }}
+          >
             <span>01</span>
             <p>Preferences</p>
-          </div>
-          <div className={step == 2 ? "plan__steps-sidebar-active" : ""}>
+          </button>
+          <button
+            className={`${
+              currentActive == "type" ? "plan__steps-sidebar-active" : ""
+            } ${fraunces.className}`}
+            onClick={() => {
+              sidebarScroll("type");
+            }}
+          >
             <span>02</span>
             <p>Bean Type</p>
-          </div>
-          <div className={step == 3 ? "plan__steps-sidebar-active" : ""}>
+          </button>
+          <button
+            className={`${
+              currentActive == "quantity" ? "plan__steps-sidebar-active" : ""
+            } ${fraunces.className}`}
+            onClick={() => {
+              sidebarScroll("quantity");
+            }}
+          >
             <span>03</span>
             <p>Quantity</p>
-          </div>
-          <div className={step == 4 ? "plan__steps-sidebar-active" : ""}>
+          </button>
+          <button
+            className={`${
+              currentActive == "grind" ? "plan__steps-sidebar-active" : ""
+            } ${fraunces.className}`}
+            onClick={() => {
+              sidebarScroll("grind");
+            }}
+          >
             <span>04</span>
             <p>Grind Option</p>
-          </div>
-          <div className={step >= 5 ? "plan__steps-sidebar-active" : ""}>
+          </button>
+          <button
+            className={`${
+              currentActive == "delivery" ? "plan__steps-sidebar-active" : ""
+            } ${fraunces.className}`}
+            onClick={() => {
+              sidebarScroll("delivery");
+            }}
+          >
             <span>05</span>
             <p>Deliveries</p>
-          </div>
+          </button>
         </div>
       </div>
 
       <div className="plan__steps-container">
         <StepItems
           options={preference}
-          step={step}
           open={true}
-          setStep={setStep}
           selected={stepOne}
           setSelected={setStepOne}
+          stepStatus={stepStatus}
+          setStepStatus={setStepStatus}
+          setCurrentActive={setCurrentActive}
         />
         <StepItems
           options={type}
-          step={step}
-          open={step >= 2 ? true : false}
-          setStep={setStep}
+          open={stepStatus.preference ? true : false}
           selected={stepTwo}
           setSelected={setStepTwo}
+          stepStatus={stepStatus}
+          setStepStatus={setStepStatus}
+          setCurrentActive={setCurrentActive}
         />
         <StepItems
           options={quantity}
-          step={step}
-          open={step >= 3 ? true : false}
-          setStep={setStep}
+          open={stepStatus.type ? true : false}
           selected={stepThree}
           setSelected={setStepThree}
+          stepStatus={stepStatus}
+          setStepStatus={setStepStatus}
+          setCurrentActive={setCurrentActive}
         />
         <StepItems
           options={grind}
-          step={step}
-          open={step >= 4 ? true : false}
-          setStep={setStep}
+          open={stepStatus.quantity ? true : false}
+          disabled={stepOne == "Capsule" ? "plan__steps-items--disabled" : ""}
           selected={stepFour}
           setSelected={setStepFour}
+          stepStatus={stepStatus}
+          setStepStatus={setStepStatus}
+          setCurrentActive={setCurrentActive}
         />
         <StepItems
           options={delivery}
-          step={step}
-          open={step >= 5 ? true : false}
-          setStep={setStep}
+          open={showDelivery(stepStatus)}
           selected={stepFive}
           setSelected={setStepFive}
+          stepStatus={stepStatus}
+          setStepStatus={setStepStatus}
+          setCurrentActive={setCurrentActive}
         />
 
         <div className="plan__steps-summary">
           <h3 className={barlow.className}>ORDER SUMMARY</h3>
           <p>
-            “I drink my coffee as Filter, with a Decaf type of bean. 250g ground
-            ala Cafetiére, sent to me Every Week.”
+            “I drink my coffee {stepOne == "Capsule" ? "using " : "as "}
+            <span className={stepOne == "" && "empty"}>{stepOne}</span> , with a{" "}
+            <span className={stepTwo == "" && "empty"}>{stepTwo}</span> type of
+            bean.{" "}
+            {(stepOne == "Filter") | (stepOne == "Espresso") ? (
+              <>
+                <span className={stepThree == "" && "empty"}> {stepThree}</span>{" "}
+                ground ala{" "}
+                <span className={stepFour == "" && "empty"}>{stepFour}</span>,
+                sent to me{" "}
+                <span className={stepFive == "" && "empty"}>{stepFive}</span> .”
+              </>
+            ) : (
+              <>
+                <span className={stepThree == "" && "empty"}>{stepThree}</span>{" "}
+                , sent to me{" "}
+                <span className={stepFive == "" && "empty"}>{stepFive}</span> .”
+              </>
+            )}
           </p>
         </div>
 
         <button
-          disabled={step >= 5 ? false : true}
+          disabled={stepStatus.delivery ? false : true}
           className={`primary-btn ${fraunces.className}`}
         >
           Create my plan!
