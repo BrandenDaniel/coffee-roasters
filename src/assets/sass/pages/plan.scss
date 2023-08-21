@@ -173,7 +173,6 @@
     &-inner {
       max-width: 540px;
       margin: 0 auto;
-      background: $light-cream;
       border-radius: 10px;
       overflow: hidden;
 
@@ -207,6 +206,7 @@
 
     &-summary {
       padding: 25px;
+      background: $light-cream;
     }
 
     &-price-mobile button {
