@@ -45,16 +45,12 @@ main > div {
   }
 
   main > div {
-    gap: 120px 0;
+    gap: 100px 0;
   }
 }
 
 @media (min-width: $xl) {
   body.container {
     padding: 0 50px 50px 50px;
-  }
-
-  main > div {
-    gap: 160px 0;
   }
 }

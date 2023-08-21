@@ -88,8 +88,8 @@
       }
 
       > div {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr;
         gap: 16px 10px;
         max-height: 0px;
         opacity: 0;
@@ -103,6 +103,8 @@
           border: none;
           background: #f4f1eb;
           border-radius: 10px;
+          display: flex;
+          flex-direction: column;
 
           h4 {
             font-size: 24px;
@@ -182,11 +184,10 @@
 
         > div {
           flex-direction: row;
+          grid-template-columns: repeat(3, 1fr);
 
           button {
             padding: 32px 32px 85px 32px;
-            flex-basis: 0;
-            flex-grow: 1;
 
             h4 {
               margin-bottom: 24px;
@@ -219,7 +220,7 @@
     &__steps {
       flex-direction: row;
       display: flex;
-      gap: 0 125px;
+      gap: 0 80px;
       padding: 0 85px;
 
       &-sidebar {
@@ -237,6 +238,16 @@
           p {
             color: $dark-grey-blue !important;
             opacity: 1 !important;
+          }
+        }
+
+        &-disabled {
+          pointer-events: none !important;
+
+          span,
+          p {
+            opacity: 0.33 !important;
+            color: $grey !important;
           }
         }
 
@@ -270,7 +281,7 @@
               font-size: 24px;
               line-height: 1.33;
               font-weight: 900;
-              opacity: 0.45;
+              opacity: 0.66;
             }
 
             span {
@@ -304,6 +315,14 @@
           align-self: flex-end;
         }
       }
+    }
+  }
+}
+
+@media (min-width: $xxl) {
+  .plan {
+    &__steps {
+      gap: 0 125px;
     }
   }
 }

@@ -32,7 +32,7 @@ const StepItems = ({
       id={`${options.id}`}
     >
       <h3>
-        {options.question} <Image src={chevron} />
+        {options.question} <Image src={chevron} alt="" />
       </h3>
       <div>
         {options.options.map((item) => (

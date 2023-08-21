@@ -60,7 +60,7 @@
 @media (min-width: $md) {
   .footer {
     gap: 32px 0;
-    margin-top: 120px;
+    margin-top: 100px;
 
     &__links {
       ul {
@@ -79,7 +79,6 @@
     flex-direction: row;
     gap: 0 100px;
     padding: 50px 85px;
-    margin-top: 160px;
 
     &__links {
       ul {

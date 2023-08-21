@@ -179,7 +179,9 @@ const Steps = () => {
           <button
             className={`${
               currentActive == "grind" ? "plan__steps-sidebar-active" : ""
-            } ${fraunces.className}`}
+            } ${fraunces.className} ${
+              stepOne == "Capsule" ? "plan__steps-sidebar-disabled" : ""
+            }`}
             onClick={() => {
               sidebarScroll("grind");
             }}
