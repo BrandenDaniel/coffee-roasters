@@ -109,7 +109,7 @@ const Steps = () => {
 
   const delivery = {
     id: "delivery",
-    nextId: "delivery",
+    nextId: "summary",
     question: "How often should we deliver?",
     options: [
       {
@@ -199,7 +199,7 @@ const Steps = () => {
           </button>
           <button
             className={`${
-              currentActive == "delivery" ? "plan__steps-sidebar-active" : ""
+              currentActive == "summary" ? "plan__steps-sidebar-active" : ""
             } ${fraunces.className}`}
             onClick={() => {
               sidebarScroll("delivery");
@@ -259,7 +259,7 @@ const Steps = () => {
           setCurrentActive={setCurrentActive}
         />
 
-        <div className="plan__steps-summary">
+        <div className="plan__steps-summary" id="summary">
           <h3 className={barlow.className}>ORDER SUMMARY</h3>
           <Summary
             stepOne={stepOne}

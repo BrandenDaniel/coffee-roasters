@@ -177,7 +177,9 @@
       overflow: hidden;
 
       h1 {
-        background: $dark-grey-blue;
+        background-image: url("../../images/background/bg-steps-desktop.png");
+        background-position: center;
+        background-size: cover;
         color: $light-cream;
         font-size: 28px;
         line-height: 1.14;
