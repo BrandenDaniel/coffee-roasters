@@ -39,6 +39,22 @@ main > div {
   gap: 100px 0;
 }
 
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(14, 135, 132, 0.4);
+  border-radius: 10px;
+  border: 2px solid $light-cream;
+}
+
 @media (min-width: $md) {
   body.container {
     padding: 0 40px 40px 40px;

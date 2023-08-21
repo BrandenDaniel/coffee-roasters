@@ -3,6 +3,8 @@ import { useState } from "react";
 import StepItems from "./StepItems";
 import { barlow, fraunces } from "@/ultils/fonts";
 import Link from "next/link";
+import Summary from "./Summary";
+import CheckoutModal from "./CheckoutModal";
 
 const Steps = () => {
   const [stepStatus, setStepStatus] = useState({
@@ -67,7 +69,7 @@ const Steps = () => {
 
   const quantity = {
     id: "quantity",
-    nextId: "grind",
+    nextId: stepOne == "Capsule" ? "delivery" : "grind",
     question: "How much would you like?",
     options: [
       {
@@ -107,6 +109,7 @@ const Steps = () => {
 
   const delivery = {
     id: "delivery",
+    nextId: "delivery",
     question: "How often should we deliver?",
     options: [
       {
@@ -137,6 +140,11 @@ const Steps = () => {
   const sidebarScroll = (id) => {
     const element = document.getElementById(id);
     element.scrollIntoView();
+  };
+
+  const openSummaryModal = () => {
+    document.querySelector(".plan__checkout-modal").showModal();
+    document.body.style.overflow = "hidden";
   };
 
   return (
@@ -253,35 +261,29 @@ const Steps = () => {
 
         <div className="plan__steps-summary">
           <h3 className={barlow.className}>ORDER SUMMARY</h3>
-          <p>
-            “I drink my coffee {stepOne == "Capsule" ? "using " : "as "}
-            <span className={stepOne == "" && "empty"}>{stepOne}</span> , with a{" "}
-            <span className={stepTwo == "" && "empty"}>{stepTwo}</span> type of
-            bean.{" "}
-            {(stepOne == "Filter") | (stepOne == "Espresso") ? (
-              <>
-                <span className={stepThree == "" && "empty"}> {stepThree}</span>{" "}
-                ground ala{" "}
-                <span className={stepFour == "" && "empty"}>{stepFour}</span>,
-                sent to me{" "}
-                <span className={stepFive == "" && "empty"}>{stepFive}</span> .”
-              </>
-            ) : (
-              <>
-                <span className={stepThree == "" && "empty"}>{stepThree}</span>{" "}
-                , sent to me{" "}
-                <span className={stepFive == "" && "empty"}>{stepFive}</span> .”
-              </>
-            )}
-          </p>
+          <Summary
+            stepOne={stepOne}
+            stepTwo={stepTwo}
+            stepThree={stepThree}
+            stepFour={stepFour}
+            stepFive={stepFive}
+          />
         </div>
 
         <button
           disabled={stepStatus.delivery ? false : true}
           className={`primary-btn ${fraunces.className}`}
+          onClick={openSummaryModal}
         >
           Create my plan!
         </button>
+        <CheckoutModal
+          stepOne={stepOne}
+          stepTwo={stepTwo}
+          stepThree={stepThree}
+          stepFour={stepFour}
+          stepFive={stepFive}
+        />
       </div>
     </>
   );
