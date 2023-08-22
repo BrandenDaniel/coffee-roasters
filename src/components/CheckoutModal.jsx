@@ -1,7 +1,14 @@
 import { fraunces, barlow } from "@/ultils/fonts";
 import Summary from "./Summary";
 
-const CheckoutModal = ({ stepOne, stepTwo, stepThree, stepFour, stepFive }) => {
+const CheckoutModal = ({
+  stepOne,
+  stepTwo,
+  stepThree,
+  stepFour,
+  stepFive,
+  calculateShipping,
+}) => {
   const closeModal = () => {
     document.querySelector(".plan__checkout-modal").close();
     document.querySelector(".plan__checkout-moda-inner");
@@ -31,7 +38,7 @@ const CheckoutModal = ({ stepOne, stepTwo, stepThree, stepFour, stepFive }) => {
             be redeemed at the checkout.
           </small>
           <div className="plan__checkout-modal-price-default">
-            <span>$14.00 / mo</span>
+            <span>${Number.parseFloat(calculateShipping).toFixed(2)} / mo</span>
             <button className={`primary-btn ${fraunces.className}`}>
               Checkout
             </button>
@@ -39,7 +46,7 @@ const CheckoutModal = ({ stepOne, stepTwo, stepThree, stepFour, stepFive }) => {
 
           <div className="plan__checkout-modal-price-mobile">
             <button className={`primary-btn ${fraunces.className}`}>
-              Checkout - $14.00 / mo
+              Checkout - ${Number.parseFloat(calculateShipping).toFixed(2)} / mo
             </button>
           </div>
         </div>

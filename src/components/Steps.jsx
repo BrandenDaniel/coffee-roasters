@@ -27,6 +27,14 @@ const Steps = () => {
 
   const [stepFive, setStepFive] = useState("");
 
+  const [weeklyShipmentPrice, setWeeklyShipmentPrice] = useState("");
+
+  const [fortnightlyShipmentPrice, setFortnightlyShipmentPrice] = useState("");
+
+  const [monthlyShipmentPrice, setMonthlyShipmentPrice] = useState("");
+
+  const [calculateShipping, setCalculateShipping] = useState("");
+
   const preference = {
     id: "preference",
     nextId: "type",
@@ -114,15 +122,15 @@ const Steps = () => {
     options: [
       {
         title: "Every Week",
-        desc: "$7.20 per shipment. Includes free first-class shipping.",
+        desc: `$${weeklyShipmentPrice} per shipment. Includes free first-class shipping.`,
       },
       {
         title: "Every 2 Weeks",
-        desc: "$9.60 per shipment. Includes free priority shipping.",
+        desc: `$${fortnightlyShipmentPrice} per shipment. Includes free priority shipping.`,
       },
       {
         title: "Every Month",
-        desc: "$12.00 per shipment. Includes free priority shipping.",
+        desc: `$${monthlyShipmentPrice} per shipment. Includes free priority shipping.`,
       },
     ],
   };
@@ -143,8 +151,44 @@ const Steps = () => {
   };
 
   const openSummaryModal = () => {
+    stepThree == "250g" && stepFive == "Every Week"
+      ? setCalculateShipping(7.2 * 4)
+      : stepThree == "250g" && stepFive == "Every 2 Weeks"
+      ? setCalculateShipping(9.6 * 2)
+      : stepThree == "250g" && stepFive == "Every Month"
+      ? setCalculateShipping(12.0 * 1)
+      : stepThree == "500g" && stepFive == "Every Week"
+      ? setCalculateShipping(13.0 * 4)
+      : stepThree == "500g" && stepFive == "Every 2 Weeks"
+      ? setCalculateShipping(17.5 * 2)
+      : stepThree == "500g" && stepFive == "Every Month"
+      ? setCalculateShipping(22.0 * 1)
+      : stepThree == "1000g" && stepFive == "Every Week"
+      ? setCalculateShipping(22.0 * 4)
+      : stepThree == "1000g" && stepFive == "Every 2 Weeks"
+      ? setCalculateShipping(32.0 * 2)
+      : stepThree == "1000g" && stepFive == "Every Month"
+      ? setCalculateShipping(42.0 * 1)
+      : "";
+
     document.querySelector(".plan__checkout-modal").showModal();
     document.body.style.overflow = "hidden";
+  };
+
+  const shippingPrices = (quantity) => {
+    quantity == "250g"
+      ? (setWeeklyShipmentPrice("7.20"),
+        setFortnightlyShipmentPrice("9.60"),
+        setMonthlyShipmentPrice("12.00"))
+      : quantity == "500g"
+      ? (setWeeklyShipmentPrice("13.00"),
+        setFortnightlyShipmentPrice("17.50"),
+        setMonthlyShipmentPrice("22.00"))
+      : quantity == "1000g"
+      ? (setWeeklyShipmentPrice("22.00"),
+        setFortnightlyShipmentPrice("32.00"),
+        setMonthlyShipmentPrice("42.00"))
+      : "";
   };
 
   return (
@@ -238,6 +282,7 @@ const Steps = () => {
           stepStatus={stepStatus}
           setStepStatus={setStepStatus}
           setCurrentActive={setCurrentActive}
+          shippingPrices={shippingPrices}
         />
         <StepItems
           options={grind}
@@ -283,6 +328,7 @@ const Steps = () => {
           stepThree={stepThree}
           stepFour={stepFour}
           stepFive={stepFive}
+          calculateShipping={calculateShipping}
         />
       </div>
     </>

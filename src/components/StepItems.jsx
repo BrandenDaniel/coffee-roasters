@@ -11,9 +11,11 @@ const StepItems = ({
   setStepStatus,
   disabled,
   setCurrentActive,
+  shippingPrices,
 }) => {
   const handleSetSelect = (title) => {
     setSelected(title);
+    shippingPrices && shippingPrices(title);
   };
 
   const handleSetStepStatus = (options) => {
