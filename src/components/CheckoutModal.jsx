@@ -19,6 +19,14 @@ const CheckoutModal = ({
     e.stopPropagation();
   };
 
+  const theEnd = () => {
+    document.querySelector(".plan__checkout-modal button").textContent =
+      "End of project";
+    document.querySelector(
+      ".plan__checkout-modal-price-mobile button"
+    ).textContent = "End of project";
+  };
+
   return (
     <dialog className="plan__checkout-modal" onClick={closeModal}>
       <div className="plan__checkout-modal-inner" onClick={stopPropagation}>
@@ -39,13 +47,19 @@ const CheckoutModal = ({
           </small>
           <div className="plan__checkout-modal-price-default">
             <span>${Number.parseFloat(calculateShipping).toFixed(2)} / mo</span>
-            <button className={`primary-btn ${fraunces.className}`}>
+            <button
+              className={`primary-btn ${fraunces.className}`}
+              onClick={theEnd}
+            >
               Checkout
             </button>
           </div>
 
           <div className="plan__checkout-modal-price-mobile">
-            <button className={`primary-btn ${fraunces.className}`}>
+            <button
+              className={`primary-btn ${fraunces.className}`}
+              onClick={theEnd}
+            >
               Checkout - ${Number.parseFloat(calculateShipping).toFixed(2)} / mo
             </button>
           </div>
